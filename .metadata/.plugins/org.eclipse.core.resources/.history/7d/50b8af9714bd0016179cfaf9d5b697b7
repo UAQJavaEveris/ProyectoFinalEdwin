@@ -1,0 +1,75 @@
+package mx.com.everis.tallerjava.services;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import mx.com.everis.tallerjava.clases.Personaje;
+
+public class CRUD{
+	
+	
+	public void createPersonaje(String nombre, String fechaNacimiento, String descripcion){
+
+		
+		
+		try {	//Conexion a base de datos JNDI
+				InitialContext ctx = new InitialContext();
+				DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/CRUDResource");
+				Connection conn = ds.getConnection();	
+				
+				String queryInPersonaje = "INSERT INTO personaje VALUES(default, '" + nombre + "', '" 
+												+ fechaNacimiento + "', '" + descripcion +"');";
+	
+				PreparedStatement pst = conn.prepareStatement(queryInPersonaje);	
+				pst.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    	
+		}
+	
+	public List<Personaje> readPersonajes(){
+
+		try {
+			InitialContext ctx = new InitialContext();
+			DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/CRUDResource");
+			Connection conn = ds.getConnection();
+			Statement s = conn.createStatement();
+			
+			ResultSet rs = s.executeQuery ("SELECT * FROM personaje");
+		    List<Personaje> listaPersonajes = new ArrayList<>();
+		    
+		    while(rs.next()){
+		    	listaPersonajes.add(new Personaje(rs.getInt("idPersonaje"), 
+		    			rs.getString("nombre"), rs.getString("fechaNacimiento"), 
+		    			rs.getString("descripcion")));
+		    }
+		    
+		    return listaPersonajes;
+		    
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+}

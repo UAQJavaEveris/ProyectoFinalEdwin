@@ -1,0 +1,21 @@
+package mx.com.everis.tallerjava.clases;
+
+
+import javax.xml.rpc.ServiceException;
+
+import mx.com.everis.tallerjava.services.*;
+public class Consultas {
+	
+	public static void createPersonaje(String nombre, String fechaNacimiento,
+			String descripcion){
+		CRUDServiceLocator serviceLocator = new CRUDServiceLocator();
+		try {
+			CRUD ws = serviceLocator.getCRUDPort();
+			ws.createPersonaje(nombre, fechaNacimiento, descripcion);
+			
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

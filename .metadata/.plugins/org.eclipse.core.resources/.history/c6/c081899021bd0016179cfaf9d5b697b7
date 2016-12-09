@@ -1,0 +1,12 @@
+package mx.com.everis.tallerjava.clases;
+
+
+import mx.com.everis.tallerjava.services.*;
+public class Consultas {
+	
+	public static void createPersonaje(){
+		CRUDServiceLocator serviceLocator = new CRUDServiceLocator();
+		CRUD ws = serviceLocator.getCRUDPort();
+	}
+
+}

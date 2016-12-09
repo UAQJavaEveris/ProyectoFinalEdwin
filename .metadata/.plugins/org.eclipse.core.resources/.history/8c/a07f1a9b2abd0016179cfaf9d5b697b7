@@ -1,0 +1,46 @@
+package mx.com.everis.tallerjava.clases;
+
+
+import java.rmi.RemoteException;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.xml.rpc.ServiceException;
+
+import mx.com.everis.tallerjava.services.*;
+public class Consultas {
+	
+	public static void createPersonaje(String nombre, String fechaNacimiento,
+			String descripcion){
+		CRUDServiceLocator serviceLocator = new CRUDServiceLocator();
+		try {
+			CRUD ws = serviceLocator.getCRUDPort();
+			ws.createPersonaje(nombre, fechaNacimiento, descripcion);
+			
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static List<Personaje> readPersonaje(){
+		CRUDServiceLocator serviceLocator = new CRUDServiceLocator();
+		try {
+			
+			CRUD ws = serviceLocator.getCRUDPort();
+			List<Personaje> personajes = Arrays.asList(ws.readPersonajes());
+			
+			return personajes;
+			
+		} catch (ServiceException e) {
+			e.printStackTrace();
+			return null;
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}		
+		
+	}
+
+}

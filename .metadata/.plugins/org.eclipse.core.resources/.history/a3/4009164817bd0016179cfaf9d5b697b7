@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ProyectoCRUDEAR">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="WSCRUD.war" deploy-path="/" handle="module:/resource/WSCRUD/WSCRUD">
+            <dependent-object>Module_1481176557336</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="FrontOperativo.war" deploy-path="/" handle="module:/resource/FrontOperativo/FrontOperativo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,72 @@
+package mx.com.everis.tallerjava.servlets;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import mx.com.everis.tallerjava.clases.Consultas;
+
+/**
+ * Servlet implementation class DelUpServlet
+ */
+@WebServlet("/DelUpServlet")
+public class DelUpServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DelUpServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub		
+		int opcion = Integer.parseInt(request.getParameter("opcion"));
+		
+		int id = -1;
+		if(request.getParameter("id")!=null){
+			id = Integer.parseInt(request.getParameter("id"));
+		}			
+		String nombrePersonaje = request.getParameter("nombrePersonaje");
+		String fechaNacimiento = request.getParameter("fechaNacimiento");
+		String descripcion = request.getParameter("descripcion");
+		
+		switch(opcion){
+			//0 = eliminar
+			case 0: 
+				Consultas.deletePersonaje(id);
+				response.sendRedirect("index.jsp");
+			break;
+			//1 = modificar
+			case 1:
+				response.sendRedirect("modificarPersonaje.jsp?id=1");
+			break;
+			//2 = agregar
+			case 2:
+				Consultas.createPersonaje(nombrePersonaje, fechaNacimiento, descripcion);
+				response.sendRedirect("index.jsp");
+				
+			break;
+			
+			default:
+			break;
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

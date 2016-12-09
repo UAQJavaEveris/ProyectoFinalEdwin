@@ -1,0 +1,76 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	padding: 50px 10% 50px 10%;
+	background-color: #39384e;
+}
+
+div.encabezado{
+	width: 100%;
+	float: left;
+}
+
+div.contenido{
+	background-color: #dfd9cb;
+	width: 60%;
+	height: 450px;
+	padding: 50px 20% 50px 20%;
+	overflow: auto;
+	border-radius: 12px;
+	float: left;
+}
+
+div.campoPersonaje{
+	width: 100%;
+	height: 200px;
+	background-color: #0c1932;
+	margin-bottom: 30px;
+	color: #fff;
+	border-radius: 12px;
+	float: left;
+}
+
+	div.campoEncabezado{
+		padding-left: 5%;
+		padding-right: 5%;
+		width: 90%;
+		background-color: #545048;
+		color: #ede9e1;
+		float: left;
+	}
+
+		div.campoEncabezado h4{
+			float: left;
+			width: 100%;
+			text-align: center;
+			font-size: 35px;
+		}
+
+
+	div.campoContenido{
+		padding: 5px 5% 5px 5%;
+		width: 90%;
+		float: left;
+		
+	}
+		div.campoContenido h4{
+			float: left;
+			width: 100%;
+			text-align: center;
+			font-size: 20px;
+		}
+	
+	div.campoBotones{
+		padding: 5px 5% 5px 5%;
+		width: 90%;
+		float: left;
+	}
+	
+div.wrapper{
+	text-align: center;
+}
+
+	

@@ -1,0 +1,30 @@
+package mx.com.everis.tallerjava.services;
+
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class CRUD{
+	
+	public static void main(String [] args){
+		InitialContext ctx;
+		DataSource ds;
+		Connection conn;
+		Statement stmt;
+		ResultSet rs;
+
+		try{
+		ctx = new InitialContext();
+		ds = (DataSource) ctx.lookup("java:comp/env/jdbc/MySQLDataSource");
+		//ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource");
+		conn = ds.getConnection();
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("SELECT * FROM Country");
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+}

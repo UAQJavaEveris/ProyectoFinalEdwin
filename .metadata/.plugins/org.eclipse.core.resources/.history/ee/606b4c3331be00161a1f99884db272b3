@@ -1,0 +1,16 @@
+function nav(dir){
+	window.location.href = dir;
+}
+
+function eliminarPersonaje(id){
+	window.location.href = "/FrontOperativo/DelUpServlet?id=" + id + "&opcion=" + "0";
+	
+}
+
+function modificarPersonaje(id){
+	window.location.href = "/FrontOperativo/DelUpServlet?id=" + id + "&opcion=" + "1";
+}
+
+function agregarPersonaje(id){
+	window.location.href = "agregarPersonaje.jsp?id=" + id + "&opcion=" + "1";
+}

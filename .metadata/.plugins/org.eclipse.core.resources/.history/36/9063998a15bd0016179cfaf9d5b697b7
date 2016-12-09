@@ -1,0 +1,62 @@
+package mx.com.everis.tallerjava.servlets;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import mx.com.everis.tallerjava.clases.Personaje;
+import mx.com.everis.tallerjava.services.CRUD;
+
+/**
+ * Servlet implementation class MiServl
+ */
+@WebServlet("/MiServl")
+public class MiServl extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	List<Personaje> personajes = new ArrayList<>();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MiServl() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		CRUD crud = new CRUD();
+		crud.createPersonaje("Jose", "1995-07-22", "PruebaCreate");
+		personajes = crud.readPersonajes();
+		for(Personaje p: personajes){
+			System.out.println(p.getNombre());
+		}
+		crud.updatePersonaje(3,"Edwin", "1995-07-22", "PruebaUpdate");
+		crud.deletePersonaje(3);
+		
+		personajes = crud.readPersonajes();
+		for(Personaje p: personajes){
+			System.out.println(p.getNombre());
+		}
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

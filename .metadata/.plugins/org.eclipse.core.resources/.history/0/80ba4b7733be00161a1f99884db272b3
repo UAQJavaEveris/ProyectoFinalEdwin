@@ -1,0 +1,171 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	padding: 50px 10% 50px 10%;
+	background-color: #39384e;
+}
+
+div.encabezado{
+	width: 100%;
+	float: left;
+}
+
+div.contenido{
+	background-color: #dfd9cb;
+	width: 60%;
+	height: 450px;
+	padding: 50px 20% 50px 20%;
+	overflow: auto;
+	border-radius: 12px;
+	float: left;
+}
+
+div.campoPersonaje{
+	width: 100%;
+	height: 350px;
+	background-color: #0c1932;
+	margin-bottom: 30px;
+	color: #fff;
+	border-radius: 12px;
+	float: left;
+	overflow: auto;
+}
+
+	div.campoEncabezado{
+		padding-left: 5%;
+		padding-right: 5%;
+		width: 90%;
+		background-color: #545048;
+		color: #ede9e1;
+		float: left;
+	}
+
+		div.campoEncabezado h4{
+			float: left;
+			width: 100%;
+			text-align: center;
+			font-size: 35px;
+		}
+
+
+	div.campoContenido{
+		padding: 5px 5% 5px 5%;
+		width: 90%;
+		float: left;
+		
+	}
+		div.campoContenido h4{
+			float: left;
+			width: 100%;
+			text-align: center;
+			font-size: 25px;
+		}
+		div.campoContenido h5{
+			float: left;
+			width: 100%;
+			font-size: 18px;
+		}
+		div.campoContenido h6{
+			float: left;
+			width: 100%;
+			text-align: center;
+			font-size: 20px;
+			margin-bottom: 15px;
+		}
+	
+	div.campoBotones{
+		padding: 15px 5% 5px 5%;
+		width: 90%;
+		float: left;
+		margin-bottom: 25px;
+	}
+	
+	div.campoBotones button{
+		width: 20%;
+		heigth: 25px;
+		font-size: 20px;
+		border-radius: 8px;
+	}
+	
+div.wrapper{
+	text-align: center;
+}
+
+.formModal{
+	width: 34%;
+	height: 600px;
+	background-color: black;
+	top: 50%;
+	left: 50%;
+	margin-left: -22%;
+	margin-top: -300px;
+	background-color: #6f461d;
+	border-radius: 15px;
+	padding: 25px 5% 15px 5%;
+	position: absolute;
+	overflow-y: auto;
+}
+
+.formModal input{
+	width: 100%;
+	height: 45px;
+	font-size: 30px;	
+	margin: 20px 0px 20px 0px;
+	border-radius: 10px;
+}
+.formModal input[type="submit"]{
+	background-color: #34992f;
+	color: #fff;
+	
+}
+
+.formModal select{
+	width: 100%;
+	height: 45px;
+	font-size: 30px;	
+	margin: 20px 0px 20px 0px;
+	border-radius: 10px;
+}
+.formModal h4{
+	color: white;
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 15px;
+	float: left;
+}
+
+button.cerrarModal{
+	width: 35px;
+	height: 35px;
+	font-size: 25px;
+	color: #fff;
+	background-color: red;
+	border-radius: 5px;
+	float: right;
+}
+
+button.cerrarModal:hover{
+	background-color: #cc0000;
+}
+.vtnModal{
+	width: 100%;
+	height: 100%;	
+	background-image: url(../media/bg-modal.png);
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	display: none;
+}
+
+.vtnModal textarea{
+	width: 100%;
+	height: 110px;
+	font-size: 25px;
+	resize: none;
+}
+
+
+	
